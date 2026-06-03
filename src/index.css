@@ -1,0 +1,36 @@
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  /* soft sage backdrop behind the fixed shader */
+  background: #dfe5d6;
+}
+
+/* Content sits above the fixed ShaderBackground canvas */
+.page {
+  position: relative;
+  z-index: 1;
+}

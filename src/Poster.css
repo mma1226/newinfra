@@ -1,0 +1,116 @@
+.overlay {
+  position: relative; /* hero section; shader shows through behind it */
+  width: 100%;
+  /* Ends just below the headline row so the logos sit close beneath it,
+     rather than after a full-viewport empty hero. */
+  min-height: 76vh;
+  overflow: hidden;
+}
+
+/* Smooth fade from the live shader into the FAQ's solid background
+   (#e9ede0) so the hero→FAQ boundary dissolves instead of hard-cutting. */
+.hero-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(160px, 26vh, 360px);
+  background: linear-gradient(
+    to bottom,
+    rgba(233, 237, 224, 0) 0%,
+    #e9ede0 100%
+  );
+  pointer-events: none;
+}
+
+/* One row at the old "APPLY" baseline (690/1024 of the frame), spread
+   left→right so the three blocks share a top edge but never overlap. */
+.headline-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 67.4vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(16px, 4vw, 80px);
+  padding: 0 clamp(20px, 6vw, 80px);
+}
+
+/* Headlines — Inter SemiBold, dark olive. Sized fluidly against the viewport
+   so the poster scales proportionally and never overflows (no transform scaling). */
+.headline {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(16px, 2.34vw, 48px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: #3a382f;
+}
+
+.headline--nowrap {
+  white-space: nowrap;
+}
+
+/* "NEW INFRA" + logos stacked in the first column */
+.headline-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logos sit directly beneath "NEW INFRA", left-aligned under it */
+.poster-logos {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 28px);
+  margin-top: clamp(14px, 1.6vw, 22px);
+}
+.poster-logo {
+  display: block;
+  width: auto;
+  height: clamp(16px, 1.6vw, 26px);
+}
+.poster-logo--modal {
+  aspect-ratio: 191.715 / 36;
+}
+.poster-logo--gray {
+  aspect-ratio: 119.225 / 35.975;
+}
+
+/* Right-aligned block: anchored at its left edge, shrinks to its widest
+   line so the shorter line ("JUNE 15") indents like the original. */
+.headline--right {
+  text-align: right;
+}
+
+/* "HERE" — same type, hyperlinked to the Apply section */
+.headline__link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.headline__link:hover {
+  color: #c4ddab;
+}
+
+/* Right cascade — Inter Light, green gradient fill clipped to the glyphs
+   (Figma node 10124:85). Per-line fade is applied via opacity in the markup. */
+.cascade {
+  position: absolute;
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(16px, 2.44vw, 50px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  background: linear-gradient(
+    to right,
+    #d5ffcc 0%,
+    #73996b 46.075%,
+    #d5ffcc 93.957%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}

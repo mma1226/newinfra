@@ -1,0 +1,22 @@
+.site-header {
+  position: relative;
+  z-index: 10;
+  background: #e9ede0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 4vw, 56px);
+  padding: clamp(20px, 2.4vw, 36px) clamp(20px, 6vw, 80px);
+}
+
+.site-logo {
+  display: block;
+  width: auto;
+  height: clamp(20px, 1.8vw, 32px);
+}
+.site-logo--modal {
+  aspect-ratio: 191.715 / 36;
+}
+.site-logo--gray {
+  aspect-ratio: 119.225 / 35.975;
+}
