@@ -4,7 +4,11 @@ import { loopImages } from './loopImages'
 import './PinLoop.css'
 
 // All looping images (self-hosted in public/loop/, hand-maintained).
-const images = loopImages
+// Prefix with Vite's base so paths resolve under a sub-path deploy
+// (e.g. /newinfra/loop/… on GitHub Pages, /loop/… in dev).
+const images = loopImages.map(
+  (p) => import.meta.env.BASE_URL + p.replace(/^\//, '')
+)
 
 type Props = {
   // Element whose width the image should mirror (live, on resize).
