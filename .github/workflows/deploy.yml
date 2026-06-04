@@ -1,8 +1,11 @@
 name: Deploy to GitHub Pages
 
+# Manual-only for now: the account's GitHub Actions are billing-locked, so
+# auto-running on every push just red-X'd the PR. Re-add the push trigger once
+# billing is cleared:
+#   push:
+#     branches: [v1]
 on:
-  push:
-    branches: [v1]
   workflow_dispatch:
 
 permissions:
