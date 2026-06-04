@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Synced Pinterest data (regenerated via `npm run refresh:pins`)
+data
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
