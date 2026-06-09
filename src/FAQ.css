@@ -5,14 +5,17 @@
   padding: clamp(64px, 10vw, 160px) clamp(20px, 6vw, 80px);
 }
 
+/* Left-aligned (not centered) so the FAQ column lines up with the left
+   edge of the poster's "NEW INFRA" block. */
 .faq__inner {
   max-width: 880px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .faq__title {
   font-weight: 600;
-  font-size: clamp(26px, 4vw, 51px);
+  /* Matches the poster headline type scale */
+  font-size: clamp(16px, 2.34vw, 48px);
   letter-spacing: -0.04em;
   margin-bottom: clamp(28px, 4vw, 56px);
 }
@@ -33,7 +36,7 @@
   cursor: pointer;
   padding: clamp(20px, 2.4vw, 30px) 0;
   font-weight: 500;
-  font-size: clamp(15px, 1.45vw, 19px);
+  font-size: clamp(14px, 1.5vw, 24px);
   letter-spacing: -0.02em;
 }
 .faq__q::-webkit-details-marker {

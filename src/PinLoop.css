@@ -1,0 +1,64 @@
+/* Centered in the canvas (the hero), images capped at 50px wide */
+.pin-loop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* no z-index: keeps the hero in one stacking context so the header logo's
+     luminosity blend can composite against this image */
+  pointer-events: none;
+}
+
+.pin-loop__img {
+  display: block;
+  /* width is set inline (JS) to mirror the CALL FOR SUBMISSION block;
+     this cap is a fallback so the image never renders at its natural size */
+  max-width: 70vw;
+  height: auto;
+}
+
+/* Top layer: the current image, fading in over the previous one (which stays
+   fully opaque beneath), so the crossfade never exposes the background.
+   Also sizes the container (in normal flow). */
+.pin-loop__img--over {
+  position: relative;
+  z-index: 1;
+  animation: pin-loop-fade-in 0.8s ease-in-out;
+}
+
+/* Bottom layer: the previous image, held solid behind the incoming one */
+.pin-loop__img--under {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+@keyframes pin-loop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile: image fills the top of the screen (behind the nav) instead of
+   centering. PinLoop leaves width unset on mobile, so CSS governs the size. */
+@media (max-width: 640px) {
+  .pin-loop {
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    height: 56vh;
+  }
+  .pin-loop__img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+  }
+}

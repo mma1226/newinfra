@@ -1,20 +1,11 @@
 import './Header.css'
-import modalWordmark from './assets/poster/modal-wordmark.svg'
-import grayArea from './assets/poster/grayarea.svg'
 
 export default function Header() {
   return (
     <header className="site-header">
-      <img
-        className="site-logo site-logo--modal"
-        src={modalWordmark}
-        alt="Modal"
-      />
-      <img
-        className="site-logo site-logo--gray"
-        src={grayArea}
-        alt="Gray Area"
-      />
+      {/* The Modal mark is drawn via a CSS mask + backdrop-filter (see Header.css)
+          so it can stay fixed AND still reflect the background like luminosity. */}
+      <span className="site-logo site-logo--modal" role="img" aria-label="Modal" />
     </header>
   )
 }
